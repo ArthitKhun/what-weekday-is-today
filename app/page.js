@@ -18,14 +18,18 @@ export default function Home() {
     setWeekday("");
     console.log("Form values:", values);
 
+    const day = parseInt(values.day);
+    const month = parseInt(values.month);
+    const year = parseInt(values.year);
+
     // Validate the date before calculating
-    if (!isValidDate(values.year, values.month, values.day)) {
+    if (!isValidDate(year, month, day)) {
       setError("Invalid Date! Please check the day, month, and year.");
       // reset last result
 
       return;
     } else {
-      setWeekday(calculateDayOfWeek(values.year, values.month, values.day));
+      setWeekday(calculateDayOfWeek(year, month, day));
     }
   };
 

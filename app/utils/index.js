@@ -98,17 +98,13 @@ export function calculateDayOfWeek(year, month, day) {
  * @returns {boolean} - True if the date is valid, false otherwise.
  */
 export function isValidDate(year, month, day) {
-  const yearInt = parseInt(year);
-  const monthInt = parseInt(month);
-  const dayInt = parseInt(day);
-
-  console.log("isValidDate", yearInt, monthInt, dayInt);
-  if (yearInt < 1900) {
+  console.log("isValidDate", year, month, day);
+  if (year < 1900) {
     return false;
   }
 
   // Check if the month is between 1 and 12
-  if (monthInt < 1 || monthInt > 12) {
+  if (month < 1 || month > 12) {
     return false;
   }
 
@@ -116,8 +112,8 @@ export function isValidDate(year, month, day) {
   const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   // Adjust February for leap years
-  let maxDays = monthDays[monthInt - 1];
-  if (monthInt === 2 && isLeapYear(yearInt)) {
+  let maxDays = monthDays[month - 1];
+  if (month === 2 && isLeapYear(year)) {
     maxDays = 29;
   }
 
